@@ -16,7 +16,8 @@ class AccountController extends Controller
 	public function index()
 	{
 		$user = User::find(Auth::id());
-		return view('account.index')->with(['user'=> $user,'m' => self::$m, 'stt' => self::$stt]);
+		$location = Location::find($user['location']);
+		return view('account.index')->with(['user'=> $user, 'location' => $location['name'],'m' => self::$m, 'stt' => self::$stt]);
 	}
 	
 	public function edit()

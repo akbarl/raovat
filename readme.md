@@ -1,5 +1,5 @@
-# Rao vặt
-Website rao vặt - viết bằng Laravel Framework
+# Rao Vặt
+Website rao vặt - sử dụng Laravel 5
 
 # Laravel PHP Framework
 
