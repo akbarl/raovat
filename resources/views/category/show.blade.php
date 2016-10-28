@@ -19,7 +19,7 @@
 					</ul>
 				</div>
 				<div class="pagination"> {{ $threads->links() }} </div>
-				{{config('raovat.paginate')}}
+				
 				@else
 					<p class="text-danger">Hiện chưa có bài viết nào ở mục này</p>
 				@endif

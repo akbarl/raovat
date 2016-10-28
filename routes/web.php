@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth','admin'], 'prefix' => 'admin'], function (
 		Route::resource('user', 'Admin\UserController');
 		Route::resource('thread', 'Admin\ThreadController');
 		Route::resource('approval', 'Admin\ApprovalController');
+		Route::resource('setting', 'Admin\SettingsController');
 		/******************************************************/
 		Route::resource('category', 'Admin\CategoryController');
 		Route::resource('brand', 'Admin\BrandController');

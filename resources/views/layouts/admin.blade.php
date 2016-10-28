@@ -115,6 +115,9 @@
 									<a href="{{url('/admin/notice')}}" class="list-group-item">
 									<i class="fa fa-comments-o fa-fw"></i> Thông báo
 									</a>
+									<a href="{{url('/admin/setting')}}" class="list-group-item">
+									<i class="fa fa-cog fa-fw"></i> Cấu hình website
+									</a>
 									<a href="{{url('/admin/info')}}" class="list-group-item">
 									<i class="fa fa-info fa-fw"></i> Thông tin website
 									</a>

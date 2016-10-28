@@ -10,19 +10,20 @@ use App\Http\Requests;
 
 use Auth;
 
-use App\User, App\Thread, App\Category;
+use App\User, App\Thread, App\Category, App\Setting;
 class CategoryController extends Controller
 {
     //
 	
 	public function index()
 	{
-		$threads = Thread::paginate(1);
-		Config::set('raovat.paginate', 3);
+		$pagination = Setting::all()->where('key', 'pagination');
+		$threads = Thread::paginate($pagination[1]['value']);
+		//Config::set('raovat.paginate', 3);
 		if(count($threads))
 		{
 			$name = 'Tất cả danh mục';
-			return view('category.show')->with(['threads' => $threads, 'name' => $name ]);
+			return view('category.show')->with(['threads' => $threads, 'name' => $name]);
 		}else
 			return view('errors.404');
 	}
