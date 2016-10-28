@@ -20,6 +20,15 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+	
+	<!-- CSS Custom -->
+	<style>
+		.navbar-default .navbar-nav > .active > a
+		{
+			color: blue;
+			background-color: white;
+		}
+	</style>
 </head>
 <body>
     <div id="app">
@@ -44,7 +53,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <!-- &nbsp; -->
+						<li class="active">
+							<a href="/home"><strong>Home</strong></a>
+						</li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

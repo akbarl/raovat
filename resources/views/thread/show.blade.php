@@ -50,11 +50,22 @@
 		<div class="row">
 			<div class="col-md-2">
 
-					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-phone" aria-hidden="true"></i> Gọi ngay</button>
+					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-phone" aria-hidden="false"></i> &nbsp; Gọi ngay</button>
 				<hr>
-
-					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi email</button>
-
+					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-envelope" aria-hidden="false"></i> &nbsp; Gửi email</button>
+				<hr>
+				<hr>
+				@if(Auth::check() && Auth::user()->isAdmin())
+				<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/approval') }}/{{$thread['id']}}">
+					{{ csrf_field() }}
+					{{ method_field('PUT') }}
+					@if(!$thread['approval'])
+							<button type="submit" class="btn btn-info col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; Duyệt bài nhanh</button>
+					@else
+							<button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-close" aria-hidden="true"></i> &nbsp; Bỏ phê duyệt</button>
+					@endif
+				</form>
+				@endif
 			</div>
 		</div>
 		</div>

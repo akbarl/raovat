@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 //Route::get('/dang-tin', 'Thread@create');
 Route::resource('thread', 'ThreadController');
 
+Route::resource('profile', 'ProfileController');
 //Route::resource('thread', 'ThreadController');
 /*
 Route::group(['middleware' => ['auth', 'admin'], function() {
@@ -51,4 +52,5 @@ Route::group(['middleware' => ['auth','admin'], 'prefix' => 'admin'], function (
 		Route::resource('brand', 'Admin\BrandController');
 		Route::resource('location', 'Admin\LocationController');
 });
+
 
