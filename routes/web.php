@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index');
 Route::resource('thread', 'ThreadController');
 
 Route::resource('profile', 'ProfileController');
+
+Route::resource('category', 'CategoryController');
 //Route::resource('thread', 'ThreadController');
 /*
 Route::group(['middleware' => ['auth', 'admin'], function() {
