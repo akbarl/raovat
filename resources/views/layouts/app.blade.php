@@ -23,8 +23,7 @@
 	
 	<!-- CSS Custom -->
 	<style>
-		.navbar-default .navbar-nav > .active > a
-		{
+		.navbar-default .navbar-nav > .active > a{
 			color: blue;
 			background-color: white;
 		}

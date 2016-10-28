@@ -22,9 +22,9 @@ Route::get('/home', 'HomeController@index');
 //Route::get('/dang-tin', 'Thread@create');
 Route::resource('thread', 'ThreadController');
 
-Route::resource('profile', 'ProfileController');
+Route::resource('profile', 'ProfileController@show',['only' => 'show']);
 
-Route::resource('category', 'CategoryController');
+Route::resource('category', 'CategoryController', ['only' => ['show','index']]);
 //Route::resource('thread', 'ThreadController');
 /*
 Route::group(['middleware' => ['auth', 'admin'], function() {
