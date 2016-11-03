@@ -83,7 +83,7 @@ class ThreadController extends Controller
 	public function show($id)
 	{
 		$thread = Thread::find($id);
-		if($thread['approval'] || Auth::user()->isAdmin())
+		if($thread['approval'])
 		{
 			$types = Type::all();
 			$categories = Category::all();

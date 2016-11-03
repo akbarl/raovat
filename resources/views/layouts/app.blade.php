@@ -65,6 +65,11 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+							@if(Auth::user()->isAdmin())
+								<li class="active">
+									<a href="/admin"><strong>Admin CP</strong></a>
+								</li>
+							@endif
 							<li>
 								<a href="/thread/create"><button class="btn btn-primary">Đăng bài</button></a>
 							</li>
@@ -73,7 +78,6 @@
                                     {{ Auth::user()->name }}<span class="caret"></span>
 									
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
 									<li>
 										<a href="{{url('/account') }}">Tài khoản của tôi</a>

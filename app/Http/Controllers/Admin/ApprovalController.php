@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Thread;
+use App\Thread, Auth;
 
 class ApprovalController extends Controller
 {
@@ -23,6 +23,7 @@ class ApprovalController extends Controller
 	public function update($id, Request $request)
 	{
 		$thread = Thread::find($id);
+		$thread->approver = Auth::id();
 		if($thread->approval)
 			$thread->approval = 0;
 		else

@@ -42,7 +42,7 @@
 			
 			<div class="panel panel-default">
 				<div class="panel-body">
-				{{$thread['description']}}
+				{!! nl2br(e($thread['description'])) !!}
 				</div>
 			</div>
         </div>
