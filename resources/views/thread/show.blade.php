@@ -45,6 +45,16 @@
 				{!! nl2br(e($thread['description'])) !!}
 				</div>
 			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">Hình ảnh</div>
+				<div class="panel-body">
+				@foreach($images as $i)
+					<img class="img-responsive" src="/uploads/{{$i->name}}"/>
+				@endforeach
+				</div>
+			</div>
+			
         </div>
 		<div class="container">
 		<div class="row">
