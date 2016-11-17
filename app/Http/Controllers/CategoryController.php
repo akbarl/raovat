@@ -29,7 +29,8 @@ class CategoryController extends Controller
 	}
 	public function show($id, Request $request)
 	{
-		$threads = Thread::where('category_id', $id)->paginate(1);
+		$pagination = Setting::all()->where('key', 'pagination');
+		$threads = Thread::where('category_id', $id)->where('approval',1)->paginate($pagination[1]['value']);
 		if(count($threads))
 		{
 			$name = Category::find($id);
