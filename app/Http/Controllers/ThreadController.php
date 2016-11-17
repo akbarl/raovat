@@ -49,10 +49,10 @@ class ThreadController extends Controller
 		$thread = new Thread;
 		$thread->description = $request->description;
 		$thread->title = $request->title;
-		$thread->type_id = $request->type;;
+		$thread->type_id = $request->type;
 		$thread->category_id = $request->category;
 		$thread->user_id = Auth::id();
-		$thread->price = $request->price;;
+		$thread->price = $request->price;
 		$thread->brand = $request->brand;
 		$thread->condition = $request->condition;
 		$thread->location = $request->location;

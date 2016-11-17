@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
 		<div class="col-md-3">
@@ -18,12 +17,12 @@
 		</div>
         <div class="col-md-9">
             <div class="panel panel-default">
-				<div class="panel-heading"><a href="/" class="btn btn-info btn-arrow-right">Trang chủ</a> <a href="{{Request::url()}}" class="btn btn-info btn-arrow-right">{{$name}}</a></div>
+				<div class="panel-heading">{{$name}}</div>
                 <div class="panel-body">
 				@if(count($threads))
 				<div class="col-md-12">
 					<ul class="list-group">
-					
+						
 						@foreach($threads as $thread)
 							<!-- <a class="list-group-item" href="{{url('thread')}}/{{$thread->id}}">{{$thread->title}} <span class="badge">{{number_format($thread->price)}}</span></a> -->
 							<div class="media">
@@ -44,7 +43,7 @@
 				<div class="pagination"> {{ $threads->links() }} </div>
 				
 				@else
-					<p class="text-danger">Hiện chưa có bài viết nào ở mục này</p>
+					<p class="text-danger">Không tìm thấy gì cả</p>
 				@endif
                 </div>
             </div>

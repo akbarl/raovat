@@ -10,7 +10,7 @@ use App\Http\Requests;
 
 use Auth;
 
-use App\User, App\Thread, App\Category, App\Setting;
+use App\User, App\Thread, App\Category, App\Setting, App\Image;
 class CategoryController extends Controller
 {
     //
@@ -31,11 +31,19 @@ class CategoryController extends Controller
 	{
 		$pagination = Setting::all()->where('key', 'pagination');
 		$threads = Thread::where('category_id', $id)->where('approval',1)->paginate($pagination[1]['value']);
-		if(count($threads))
-		{
+		//if(count($threads))
+		//{
 			$name = Category::find($id);
 			return view('category.show')->with(['threads' => $threads, 'name' => $name['name'] ]);
-		}else
+		//}
+		/*
+		else
 			return view('errors.404');
+		*/
+	}
+	
+	public function hehe()
+	{
+		return "bb";
 	}
 }

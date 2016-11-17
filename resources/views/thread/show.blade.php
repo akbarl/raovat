@@ -3,7 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+		<div class="col-md-3">
+			<div class="panel panel-primary panel-default">
+				<div class="panel-heading">Danh mục</div>
+				<div class="panel-body">
+					<ul>
+						@foreach(App\Category::all() as $c)
+							<li>{{$c->name}}</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
+		</div>
+        <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-heading">{{$thread['title']}}</div>
 
@@ -41,6 +53,7 @@
             </div>
 			
 			<div class="panel panel-default">
+				<div class="panel-heading">Chi tiết</div>
 				<div class="panel-body">
 				{!! nl2br(e($thread['description'])) !!}
 				</div>
