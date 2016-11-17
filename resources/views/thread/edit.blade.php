@@ -8,7 +8,7 @@
                 <div class="panel-heading">Đăng bài</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/thread') }}/{{$thread['id']}}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/thread') }}/{{$thread['id']}}" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PUT">
 						<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -117,6 +117,52 @@
 							</div>
 						</div>
 						
+						<div class="form-group{{ count($errors->get('images.*')) ? ' has-error' : '' }}">
+						
+							<label for="images" class="col-md-4 control-label">Hình ảnh (tối đa 5 ảnh)</label>
+							<div class="col-md-6">
+							@if(count($errors->get('images.*')))
+								@for($i = 0; $i < 5; $i++)
+									@if ($errors->has('images.'.$i))
+										<span class="help-block">
+											<strong>{{ $errors->first('images.'.$i) }}</strong>
+										</span>
+									@endif
+									
+								@endfor
+							@endif
+							<div id="listimg">
+								@foreach($images as $i)
+									<input type="hidden" name="image[]" id="hidden_{{$i->id}}" value="{{$i->id}}">
+									<img width="100" height="100" id="{{$i->id}}" src="/uploads/{{$i->name}}" onclick="remove({{$i->id}})"/>
+								@endforeach
+								@for($i = count($images) ;$i < 5; $i++)
+									<input type="file" class="form-control" name="images[]">
+								@endfor
+							</div>
+						</div>
+						<script>
+							var arrayRemove = [];
+							function remove(id) {
+								addToRemove(id);
+								$( "#hidden_"+id ).remove();
+								$( "#"+id ).remove();
+								
+								addInput();
+							}
+							
+							function addInput()
+							{
+								var listimg = document.getElementById("listimg");
+								listimg.innerHTML += "<input type=\"file\" class=\"form-control\" name=\"images[]\">";
+							}
+							
+							function addToRemove(id)
+							{
+								var listimg = document.getElementById("listimg");
+								listimg.innerHTML += "<input type=\"hidden\" id=\"remove\" name=\"remove[]\" value=\""+id+"\">";
+							}
+						</script>
 						<div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
