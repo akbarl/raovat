@@ -101,6 +101,7 @@
 											<a href="{{url('/admin/user')}}" class="list-group-item">Người dùng</a>
 											<a href="{{url('/admin/thread')}}" class="list-group-item">Bài viết</a>
 											<a href="{{url('/admin/category')}}" class="list-group-item">Danh mục</a>
+											<a href="{{url('/admin/subcategory')}}" class="list-group-item">Danh mục con</a>
 											<a href="{{url('/admin/brand')}}" class="list-group-item">Nhãn hiệu</a>
 											<a href="{{url('/admin/location')}}" class="list-group-item">Vị trí</a>
 										</ul>

@@ -2,7 +2,7 @@
 
 @section('content')
             <div class="panel panel-default">
-                <div class="panel-heading">Danh mục</div>
+                <div class="panel-heading">Danh mục con</div>
 
                 <div class="panel-body">
 					@if(isset($m))
@@ -12,7 +12,7 @@
 					@endif
 					<table class="table table-bordered grocery-crud-table table-hover">
 						<div style="padding: 0 0 15px 0">
-								<a class="btn btn-primary"  href="{{url('admin/subcategory/create')}}"><i class="fa fa-plus"></i> &nbsp; Thêm danh mục </a>
+								<a class="btn btn-primary"  href="{{url('admin/subcategory/create')}}"><i class="fa fa-plus"></i> &nbsp; Thêm danh mục con </a>
 						</div>
 						<thead>
 							<tr>

@@ -31,7 +31,14 @@
 					  <div class="panel-heading">Danh mục</div>
 					  <div class="panel-body">
 							@foreach($categories as $c)
-								<div class="col-md-3"><a href="category/{{$c->id}}">{{$c->name}}</a></div>
+								<ul class="col-md-3 nav nav-list">
+									<a href="/category/{{$c->id}}"><li class="nav-header">{{$c->name}}</li></a>
+									@foreach($subcategories as $s)
+										@if($s->category_id == $c->id)
+											<li><a href="/subcategory/{{$s->id}}">{{$s->name}}</a></li>
+										@endif
+									@endforeach
+								</ul>
 							@endforeach
 					  </div>
 				</div>

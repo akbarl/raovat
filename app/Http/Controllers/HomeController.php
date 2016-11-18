@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, App\Category, App\Location;
+use Illuminate\Http\Request, App\Category, App\Location, App\SubCategory;
 
 class HomeController extends Controller
 {
@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
 		$locations = Location::all();
 		$categories = Category::all();
-        return view('home')->with(['locations' => $locations, 'categories' => $categories]);
+		$subcategories = SubCategory::all();
+        return view('home')->with(['locations' => $locations, 'categories' => $categories, 'subcategories' => $subcategories]);
     }
 }

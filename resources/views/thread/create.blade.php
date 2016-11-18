@@ -41,11 +41,17 @@
 							<div class="col-md-6">
 								<select class="form-control" name="category">
 								@foreach ($categories as $category)
-									@if(old('category') == $category->id)
-										<option value="{{$category->id}}" selected>{{$category->name}}</option>
-									@else
-										<option value="{{$category->id}}">{{$category->name}}</option>
-									@endif
+									<optgroup label="{{$category->name}}">
+									@foreach ($subcategories as $subcategory)
+										@if($subcategory->category_id == $category->id)
+											@if(old('category') == $subcategory->id)
+												<option value="{{$subcategory->id}}" selected>{{$subcategory->name}}</option>
+											@else
+												<option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+											@endif
+										@endif
+									@endforeach
+									</optgroup>
 								@endforeach
 								</select>
 							</div>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User;
+use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User, App\SubCategory;
 
 class ThreadController extends Controller
 {
@@ -26,9 +26,10 @@ class ThreadController extends Controller
 		$types = Type::all();
 		$categories = Category::all();
 		$conditions = Condition::all();
+		$subcategories = SubCategory::all();
 		$brands = Brand::all();
 		$locations = Location::all();
-		return view('admin.thread.edit')->with(['thread'=> $thread, 'categories'=> $categories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations]);
+		return view('admin.thread.edit')->with(['thread'=> $thread, 'subcategories' => $subcategories,'categories'=> $categories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations]);
 	}
 	
 	public function update($id, Request $request)
@@ -37,7 +38,7 @@ class ThreadController extends Controller
 		$thread->description = $request->description;
 		$thread->title = $request->title;
 		$thread->type_id = $request->type;;
-		$thread->category_id = $request->category;
+		$thread->subcategory_id = $request->category;
 		$thread->price = $request->price;;
 		$thread->brand = $request->brand;
 		$thread->condition = $request->condition;
@@ -50,10 +51,38 @@ class ThreadController extends Controller
 	
 	public function destroy($id)
 	{
+		$images = Image::where('thread_id',$id)->get();
+		foreach($images as $i)
+		{
+			File::delete('uploads/'.$i->name);
+		}
+		$images = Image::where('thread_id',$id)->delete();
+		
 		$thread = Thread::find($id);
 		$thread->delete();
 		self::$m = "Xóa thành công bài viết ID là ".$id;
 		self::$stt = "danger";
 		return self::index();
 	}
+	
+	public static function uploadFile(Request $request, $thread_id)
+	{
+		if($request->hasFile('images'))
+		{
+			$length = count($request->images);
+			for($i = 0 ;$i< $length;$i++)
+			{
+				$extension = $request->images[$i]->getClientOriginalExtension();
+				$destinationPath = 'uploads';
+				$filename = $thread_id.'_'.uniqid();
+				$filename = $filename.'.'.$extension;
+				$images = new Image;
+				$images->name = $filename;
+				$images->thread_id = $thread_id;
+				$request->images[$i]->move($destinationPath, $filename);
+				$images->save();
+			}
+		}
+	}
+	
 }

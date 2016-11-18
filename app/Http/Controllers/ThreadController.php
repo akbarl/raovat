@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User, App\Image;
+use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User, App\Image, App\SubCategory;
 
 use Auth;
 
@@ -34,10 +34,11 @@ class ThreadController extends Controller
 	{
 		$types = Type::all();
 		$categories = Category::all();
+		$subcategories = SubCategory::all();
 		$conditions = Condition::all();
 		$brands = Brand::all();
 		$locations = Location::all();
-		return view('thread.create')->with(['categories'=> $categories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations]);
+		return view('thread.create')->with(['categories'=> $categories, 'subcategories' => $subcategories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations]);
 	}
 	
 	public function store(Request $request)
@@ -50,7 +51,7 @@ class ThreadController extends Controller
 		$thread->description = $request->description;
 		$thread->title = $request->title;
 		$thread->type_id = $request->type;
-		$thread->category_id = $request->category;
+		$thread->subcategory_id = $request->category;
 		$thread->user_id = Auth::id();
 		$thread->price = $request->price;
 		$thread->brand = $request->brand;
@@ -87,10 +88,11 @@ class ThreadController extends Controller
 		$types = Type::all();
 		$categories = Category::all();
 		$conditions = Condition::all();
+		$subcategories = SubCategory::all();
 		$brands = Brand::all();
 		$locations = Location::all();
 		$images = Image::where('thread_id',$id)->get();
-		return view('thread.edit')->with(['thread'=> $thread, 'categories'=> $categories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations, 'images' => $images]);
+		return view('thread.edit')->with(['thread'=> $thread, 'categories'=> $categories, 'subcategories' => $subcategories, 'types'=> $types, 'conditions'=> $conditions, 'brands'=> $brands, 'locations'=> $locations, 'images' => $images]);
 	}
 	
 	public function update($id, Request $request)
@@ -99,7 +101,7 @@ class ThreadController extends Controller
 		$thread->description = $request->description;
 		$thread->title = $request->title;
 		$thread->type_id = $request->type;;
-		$thread->category_id = $request->category;
+		$thread->subcategory_id = $request->category;
 		$thread->price = $request->price;;
 		$thread->brand = $request->brand;
 		$thread->condition = $request->condition;
