@@ -37,9 +37,11 @@ Route::group(['middleware' => ['auth', 'admin'], function() {
 */
 Route::group(['middleware' => ['auth'], 'prefix' => 'account'], function () {
     //Route::resource('admin', 'Admin\AdminController');
-		Route::get('/', 'AccountController@index');
-		Route::get('/edit', 'AccountController@edit');
-		Route::post('/update', 'AccountController@update');
+		Route::get('/', 'Account\AccountController@index');
+		Route::get('/edit', 'Account\AccountController@edit');
+		Route::post('/update', 'Account\AccountController@update');
+		Route::resource('thread', 'Account\ThreadController');
+		//Route::resource('thread', 'Account\ThreadController');
 });
 
 Route::group(['middleware' => ['auth','admin'], 'prefix' => 'admin'], function () {

@@ -43,7 +43,11 @@
 							<div class="media">
 							  <div class="media-left">
 							  
-								<a href="/thread/{{$thread->id}}"><img src="/uploads/{{App\Image::where('thread_id',$thread->id)->firstOrFail()['name']}}" class="media-object" style="width:60px"></a>
+								@if(count(App\Image::where('thread_id',$thread->id)->get()))
+									<a href="/thread/{{$thread->id}}"><img src="/uploads/{{App\Image::where('thread_id',$thread->id)->firstOrFail()['name']}}" class="media-object" style="width:60px"></a>
+								@else
+									<a href="/thread/{{$thread->id}}"><img src="/images/default.png" class="media-object" style="width:60px"></a>
+								@endif
 							  </div>
 							  <div class="media-body">
 								<h4 class="media-heading"><a href="/thread/{{$thread->id}}">{{$thread->title}}</a></h4>

@@ -17,7 +17,6 @@
 									<th>ID</th>
 									<th class="col-md-7">Tiêu đề</th>
 									<th>ID người đăng</th>
-									<th>Xem</th>
 									<th>Chấp nhận</th>
 								</tr>
 							</thead>
@@ -25,12 +24,9 @@
 								@foreach ($threads as $thread)
 									<tr>
 										<td>{{ $thread->id}}</td>
-										<td>{{ $thread->title}}</td>
+										<td><a href="/thread/{{$thread->id}}">{{ $thread->title}}</a></td>
 										<td>{{ $thread->user_id}}</td>
 										
-										<td>
-											<a class="btn btn-info" href="{{ url('thread') }}/{{$thread->id}}"><i class="fa fa-search"></i> Xem</a>
-										</td>
 										<td>
 										<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/approval') }}/{{$thread->id}}">
 											{{ csrf_field() }}
@@ -50,6 +46,7 @@
 								@endforeach
 							</tbody>
 						</table>
+						<div class="pagination"> {{ $threads->links() }} </div>
 					</div>
                 </div>
             </div>

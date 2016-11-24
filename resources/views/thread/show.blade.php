@@ -2,6 +2,11 @@
 @extends('menu.category')
 @section('content')
         <div class="col-md-7">
+			@if($m)
+				<div class="alert alert-{{$stt}}">
+							{{$m}}
+				</div>
+			@endif
             <div class="panel panel-default">
                 <div class="panel-heading">{{$thread['title']}}</div>
 
@@ -48,9 +53,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Hình ảnh</div>
 				<div class="panel-body">
-				@foreach($images as $i)
-					<img class="img-responsive" src="/uploads/{{$i->name}}"/>
-				@endforeach
+				@if(count($images))
+					@foreach($images as $i)
+						<img class="img-responsive" src="/uploads/{{$i->name}}"/>
+					@endforeach
+				@else
+						Không có hình ảnh
+				@endif
 				</div>
 			</div>
 			

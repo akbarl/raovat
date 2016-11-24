@@ -8,7 +8,7 @@
                 <div class="panel-heading">Đăng bài</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/thread') }}/{{$thread['id']}}" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/account/thread') }}/{{$thread['id']}}" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PUT">
 						<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">

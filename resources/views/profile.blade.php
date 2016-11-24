@@ -25,8 +25,10 @@
 							<div class="col-md-2 col-xs-2 text-primary">Giới tính</div>
 							@if($user['sex'] == 1)
 								<div class="col-md-2 col-xs-2">Nam</div>
-							@else
+							@elseif($user['sex'] == 2)
 								<div class="col-md-2 col-xs-2">Nữ</div>
+							@else
+								<div class="col-md-2 col-xs-2">Không xác định</div>
 							@endif
 							<div class="col-md-2 col-xs-2 text-primary">Số điện thoại</div>
 							<div class="col-md-2 col-xs-2">{{$user['phone']}}</div>

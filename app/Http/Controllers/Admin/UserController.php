@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User, App\Role;
+use App\User, App\Role, App\Setting;
 
 class UserController extends Controller
 {
@@ -15,6 +15,7 @@ class UserController extends Controller
 	public static $stt;
 	public function index(Request $request)
 	{
+		$pagination = Setting::all()->where('key', 'pagination');
 		if($request->input('content') != null && $request->input('type') != null)
 		{
 			$content = $request->input('content');
@@ -26,10 +27,10 @@ class UserController extends Controller
 				$type = "name";
 			else if($type == 3)
 				$type = "email";
-			$users = User::where($type,'like','%'.$content.'%')->get();
+			$users = User::where($type,'like','%'.$content.'%')->paginate($pagination[1]['value']);
 		}
 		else
-			$users = User::all();
+			$users = User::paginate($pagination[1]['value']);
 		return view('admin.user.index')->with(['users' => $users, 'm' => self::$m, 'stt' => self::$stt]);
 	}
 	

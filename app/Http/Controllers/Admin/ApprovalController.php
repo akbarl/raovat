@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Thread, Auth;
+use App\Thread, Auth, App\Setting;
 
 class ApprovalController extends Controller
 {
@@ -16,7 +16,8 @@ class ApprovalController extends Controller
 	public static $stt;
 	public function index()
 	{
-		$threads = Thread::all();
+		$pagination = Setting::all()->where('key', 'pagination');
+		$threads = Thread::paginate($pagination[1]['value']);
 		return view('admin.approval.index')->with(['threads'=> $threads,'m' => self::$m, 'stt' => self::$stt]);
 	}
 	

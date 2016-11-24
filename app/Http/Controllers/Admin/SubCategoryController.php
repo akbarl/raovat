@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Category, App\SubCategory;
+use App\Category, App\SubCategory, App\Setting;
 use DB;
 class SubCategoryController extends Controller
 {
@@ -16,7 +16,8 @@ class SubCategoryController extends Controller
 	public function index()
 	{
 		//$categories = Category::all();
-		$subcategories = DB::table('subcategories')->leftJoin('categories','subcategories.category_id','=','categories.id')->select('subcategories.name as subname','categories.name as cname','subcategories.id as id')->get();
+		$pagination = Setting::all()->where('key', 'pagination');
+		$subcategories = DB::table('subcategories')->leftJoin('categories','subcategories.category_id','=','categories.id')->select('subcategories.name as subname','categories.name as cname','subcategories.id as id')->paginate($pagination[1]['value']);
 		return view('admin.subcategory.index')->with(['subcategories' => $subcategories, 'm' => self::$m, 'stt' => self::$stt]);
 	}
 	

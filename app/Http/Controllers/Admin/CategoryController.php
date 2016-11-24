@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Category;
+use App\Category, App\Setting;
 class CategoryController extends Controller
 {
     //
@@ -14,7 +14,8 @@ class CategoryController extends Controller
 	public static $stt;
 	public function index()
 	{
-		$categories = Category::all();
+		$pagination = Setting::all()->where('key', 'pagination');
+		$categories = Category::paginate($pagination[1]['value']);
 		return view('admin.category.index')->with(['categories' => $categories, 'm' => self::$m, 'stt' => self::$stt]);
 	}
 	

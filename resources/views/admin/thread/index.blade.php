@@ -62,7 +62,7 @@
 								@foreach ($threads as $thread)
 									<tr>
 										<td>{{ $thread->id}}</td>
-										<td>{{ $thread->title}}</td>
+										<td><a href="/thread/{{$thread->id}}">{{ $thread->title}}</a></td>
 										<td>{{ $thread->user_id}}</td>
 										<td>
 											<a class="btn btn-info" href="{{ url('admin/thread') }}/{{$thread->id}}/edit"><i class="fa fa-pencil"></i> Sửa</a>
