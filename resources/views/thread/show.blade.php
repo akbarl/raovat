@@ -64,24 +64,57 @@
 			</div>
 			
         </div>
-			<div class="col-md-2">
+		<div class="col-md-2">
 
-					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-phone" aria-hidden="false"></i> &nbsp; Gọi ngay</button>
-				<hr>
-					<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12"><i class="fa fa-envelope" aria-hidden="false"></i> &nbsp; Gửi email</button>
-				<hr>
-				<hr>
-				@if(Auth::check() && Auth::user()->isAdmin())
-				<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/approval') }}/{{$thread['id']}}">
-					{{ csrf_field() }}
-					{{ method_field('PUT') }}
-					@if(!$thread['approval'])
-							<button type="submit" class="btn btn-info col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; Duyệt bài nhanh</button>
-					@else
-							<button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-close" aria-hidden="true"></i> &nbsp; Bỏ phê duyệt</button>
-					@endif
-				</form>
+				<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12" onclick="showModal('Số điện thoại','{{$user['phone']}}')" data-toggle="modal" data-target="#info"><i class="fa fa-phone" aria-hidden="false"></i> &nbsp; Gọi ngay</button>
+			<hr>
+				<button type="button" class="btn btn-success col-md-12 col-sm-12 col-xs-12" onclick="showModal('Email','{{$user['email']}}')" data-toggle="modal" data-target="#info"><i class="fa fa-envelope" aria-hidden="false"></i> &nbsp; Gửi email</button>
+			<hr>
+			<hr>
+			@if(Auth::check() && Auth::user()->isAdmin())
+			<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/approval') }}/{{$thread['id']}}">
+				{{ csrf_field() }}
+				{{ method_field('PUT') }}
+				@if(!$thread['approval'])
+						<button type="submit" class="btn btn-info col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; Duyệt bài nhanh</button>
+				@else
+						<button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12 active"><i class="fa fa-close" aria-hidden="true"></i> &nbsp; Bỏ phê duyệt</button>
 				@endif
+			</form>
+			@endif
+		</div>
+		
+		<script>
+			function showModal(_title,_content)
+			{
+				if(_content == "")
+					_content = "Không có";
+				var info = document.getElementById("info");
+				var title = info.getElementsByClassName("modal-title")[0];
+				var content = info.getElementsByClassName("modal-body")[0];
+				title.innerHTML = _title;
+				content.innerHTML = _content;
+			}
+		</script>
+		<!-- Modal -->
+		<div id="info" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Modal Header</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Some text in the modal.</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+			  </div>
 			</div>
+
+		  </div>
+		</div>
 
 @endsection

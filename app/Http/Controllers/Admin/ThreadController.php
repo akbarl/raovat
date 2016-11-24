@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User, App\SubCategory;
+use App\Thread, App\Type, App\Category, App\Condition, App\Brand, App\Location, App\User, App\SubCategory, App\Setting;
 
 class ThreadController extends Controller
 {
@@ -15,7 +15,7 @@ class ThreadController extends Controller
 	public static $m;
 	public static $stt;
 	public function index(Request $request)
-	{
+	{	$pagination = Setting::all()->where('key', 'pagination');
 		if($request->input('content') != null && $request->input('type') != null)
 		{
 			$content = $request->input('content');
@@ -32,9 +32,9 @@ class ThreadController extends Controller
 				$type = "user_id";
 			}else if($type == 4)
 				$type = "user_id";
-			$threads = Thread::where($type,'like','%'.$content.'%')->get();
+			$threads = Thread::where($type,'like','%'.$content.'%')->paginate($pagination[1]['value']);
 		}else
-			$threads = Thread::all();
+			$threads = Thread::paginate($pagination[1]['value']);
 		return view('admin.thread.index')->with(['threads'=> $threads,'m' => self::$m, 'stt' => self::$stt]);
 	}
 	

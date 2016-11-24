@@ -80,6 +80,7 @@
 								@endforeach
 							</tbody>
 						</table>
+						<div class="pagination">{{$threads->links()}}</div>
 					</div>
                 </div>
             </div>

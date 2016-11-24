@@ -1,23 +1,29 @@
 @extends('layouts.app')
-
+@extends('menu.category')
 @section('content')
-<div class="container">
-    <div class="row">
-		<div class="col-md-3">
-			<div class="panel panel-primary panel-default">
-				<div class="panel-heading">Danh mục</div>
-				<div class="panel-body">
-					<ul>
-						@foreach(App\Category::all() as $c)
-							<li>{{$c->name}}</li>
-						@endforeach
-					</ul>
-				</div>
-			</div>
-		</div>
         <div class="col-md-9">
             <div class="panel panel-default">
-				<div class="panel-heading">{{$name}}</div>
+				<div class="panel-heading">{{$name}}: {{Request::input('content')}}
+				<div class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+									Sắp xếp theo<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="search?location={{Request::input('location')}}&content={{Request::input('content')}}&sort=time&orderby=asc">Thời gian tăng dần</a>
+								</li>
+								<li>
+									<a href="search?location={{Request::input('location')}}&content={{Request::input('content')}}&sort=time&orderby=desc">Thời gian giảm dần</a>
+								</li>
+								<li>
+									<a href="search?location={{Request::input('location')}}&content={{Request::input('content')}}&sort=price&orderby=asc">Giá tăng dần</a>
+								</li>
+								<li>
+									<a href="search?location={{Request::input('location')}}&content={{Request::input('content')}}&sort=price&orderby=asc">Giá giảm dần</a>
+								</li>
+						</ul>
+					</div>
+				</div>
                 <div class="panel-body">
 				@if(count($threads))
 				<div class="col-md-12">
@@ -28,11 +34,19 @@
 							<div class="media">
 							  <div class="media-left">
 							  
-								<a href="/thread/{{$thread->id}}"><img src="/uploads/{{App\Image::where('thread_id',$thread->id)->firstOrFail()['name']}}" class="media-object" style="width:60px"></a>
+								@if(count(App\Image::where('thread_id',$thread->id)->get()))
+									<a href="/thread/{{$thread->id}}"><img src="/uploads/{{App\Image::where('thread_id',$thread->id)->firstOrFail()['name']}}" class="media-object" style="width:60px;height:60px;"></a>
+								@else
+									<a href="/thread/{{$thread->id}}"><img src="/images/default.png" class="media-object" style="width:60px;height:60px;"></a>
+								@endif
 							  </div>
 							  <div class="media-body">
 								<h4 class="media-heading"><a href="/thread/{{$thread->id}}">{{$thread->title}}</a></h4>
-								<p>{{$thread->description}}</p>
+								
+									<div class="col-md-3">{{$thread->price}} đ</div> 
+									<div class="text-right">Đăng lúc {{date('d-m-y h:m:s',strtotime($thread->created_at))}} </div>
+									<div class="col-md-3">{{App\SubCategory::find($thread->subcategory_id)["name"]}} ở {{App\Location::find($thread->location)["name"]}}</div> 
+								
 							  </div>
 							</div>
 							
@@ -40,7 +54,7 @@
 						
 					</ul>
 				</div>
-				<div class="pagination"> {{ $threads->links() }} </div>
+				<div class="pagination"> {{ $threads->appends(Request::all())->links() }} </div>
 				
 				@else
 					<p class="text-danger">Không tìm thấy gì cả</p>
@@ -48,6 +62,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

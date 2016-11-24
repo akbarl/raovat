@@ -13,10 +13,21 @@ class SearchController extends Controller
     //
 	public function index(Request $request)
 	{
+		$sort = "id";
+		$orderby = "desc";
 		$content = $request->input('content');
 		$location = $request->input('location');
 		$pagination = Setting::all()->where('key', 'pagination');
-		$threads = Thread::where('title','like','%'.$content.'%')->where('location',$location)->paginate($pagination[1]['value']);
+		if($request->input('sort') != null && $request->input('orderby') != null)
+		{
+			$sort = $request->input('sort');
+			$orderby = $request->input('orderby');
+			if($sort == "time")
+				$sort = "created_at";
+			else if($sort == "price")
+				$sort = "price";
+		}
+		$threads = Thread::where('approval',1)->where('title','like','%'.$content.'%')->where('location',$location)->orderBy($sort,$orderby)->paginate($pagination[1]['value']);
 		//Config::set('raovat.paginate', 3);
 		//if(count($threads))
 		//{
