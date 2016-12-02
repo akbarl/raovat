@@ -70,7 +70,11 @@
 								<select name="location" class="form-control">
 								  
 									@foreach(App\Location::all() as $l)
-										<option value="{{$l->id}}">{{$l->name}}</option>
+										@if(session('location') == $l->id)
+											<option value="{{$l->id}}" selected>{{$l->name}}</option>
+										@else
+											<option value="{{$l->id}}">{{$l->name}}</option>
+										@endif
 									@endforeach
 								 
 								</select>

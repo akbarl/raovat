@@ -45,7 +45,9 @@ class ThreadController extends Controller
 	{
 		$this->validate($request, [
 			'images.*' => 'required|mimes:jpeg,jpg,png,gif',
-			'title' => 'required|max:100',
+			'title' => 'required|max:50',
+			'description' => 'required|max:2000',
+			'price' => 'required|numeric',
 		]);
 		$thread = new Thread;
 		$thread->description = $request->description;
@@ -97,6 +99,13 @@ class ThreadController extends Controller
 	
 	public function update($id, Request $request)
 	{
+		$this->validate($request, [
+			'images.*' => 'required|mimes:jpeg,jpg,png,gif',
+			'title' => 'required|max:50',
+			'description' => 'required|max:2000',
+			'price' => 'required|numeric',
+		]);
+		
 		$thread = Thread::find($id);
 		$thread->description = $request->description;
 		$thread->title = $request->title;

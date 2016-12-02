@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        
             <div class="intro" style="background-image: url(images/bg3.jpg);">
 				<div class="container text-center">
 					<h1 class="intro-title"> TÌM KIẾM RAO VẶT</h1>
@@ -12,7 +11,11 @@
 						<div class="col-lg-2 col-sm-2">
 							  <select name="location" class="form-control">
 							  @foreach($locations as $l)
-								<option value="{{$l->id}}">{{$l->name}}</option>
+								@if(session('location') == $l->id)
+									<option value="{{$l->id}}" selected>{{$l->name}}</option>
+								@else
+									<option value="{{$l->id}}">{{$l->name}}</option>
+								@endif
 							  @endforeach
 							  </select>
 						</div>
@@ -73,5 +76,4 @@
 			</div>
     </div>
 </div>
-
 @endsection

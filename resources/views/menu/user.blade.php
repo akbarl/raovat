@@ -17,6 +17,7 @@
 				<a href="/account" class="list-group-item">Thông tin của tôi</a>
 				<a href="/account/thread" class="list-group-item">Bài viết của tôi</a>
 				<a href="/account/edit" class="list-group-item">Sửa thông tin cá nhân</a>
+				<a href="/account/changepassword" class="list-group-item">Đổi mật khẩu</a>
 			</ul>
 		</div>
 	</div>

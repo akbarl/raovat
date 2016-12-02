@@ -18,6 +18,7 @@ class SearchController extends Controller
 		$content = $request->input('content');
 		$location = $request->input('location');
 		$pagination = Setting::all()->where('key', 'pagination');
+		
 		if($request->input('sort') != null && $request->input('orderby') != null)
 		{
 			$sort = $request->input('sort');
@@ -26,11 +27,13 @@ class SearchController extends Controller
 				$sort = "created_at";
 			else if($sort == "price")
 				$sort = "price";
+			session(['location' => $location]);
 		}
 		$threads = Thread::where('approval',1)->where('title','like','%'.$content.'%')->where('location',$location)->orderBy($sort,$orderby)->paginate($pagination[1]['value']);
 		//Config::set('raovat.paginate', 3);
 		//if(count($threads))
 		//{
+			session(['location' => $location]);
 			$name = 'Kết quả tìm kiếm';
 			return view('search.show')->with(['threads' => $threads, 'name' => $name]);
 		//}

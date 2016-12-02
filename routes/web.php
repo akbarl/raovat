@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'account'], function () {
 		Route::get('/', 'Account\AccountController@index');
 		Route::get('/edit', 'Account\AccountController@edit');
 		Route::post('/update', 'Account\AccountController@update');
+		//Route::get('/changepassword', 'Auth\ChangePasswordController@index');
+		//Route::resource('changepassword', 'Auth\ChangePasswordController', ['only' => ['index','update']]);
+		Route::get('/changepassword', 'Auth\ChangePasswordController@index');
+		Route::post('/changepassword/update', 'Auth\ChangePasswordController@update');
 		Route::resource('thread', 'Account\ThreadController');
 		//Route::resource('thread', 'Account\ThreadController');
 });
