@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @extends('menu.category')
+@section('title')
+	{{$thread['title']}}
+@endsection
 @section('content')
         <div class="col-md-7">
 			@if($m)
@@ -8,7 +11,7 @@
 				</div>
 			@endif
             <div class="panel panel-default">
-                <div class="panel-heading">{{$thread['title']}}</div>
+                <div class="panel-heading"><div class="btn btn-primary text-uppercase">{{App\Type::find($thread['type_id'])['name']}}</div> {{$thread['title']}}</div>
 
                 <div class="panel-body">
 					<div class="row col-md-12">
@@ -38,6 +41,14 @@
 							<a href="/profile/{{$user['id']}}">{{$user['name']}}</a>
 						</div>
 					</div>
+					
+					<div class="row col-md-12">
+						<div class="col-md-3 col-xs-3 text-primary">Giá</div>
+						<div class="col-md-3 col-xs-3">
+							{{number_format($thread['price'])}}
+						</div>
+					</div>
+					
 						
 						
                 </div>

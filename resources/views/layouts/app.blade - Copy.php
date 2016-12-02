@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title','Welcome to RV')</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -47,7 +47,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="/uploads/logo.gif" alt="RV" height="30px"/>
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
@@ -56,35 +56,23 @@
                     <ul class="nav navbar-nav">
                         <!-- &nbsp; -->
 						<li class="active">
-							<a href="/"><strong>Trang chủ</strong></a>
+							<a href="/home"><strong>Trang chủ</strong></a>
 						</li>
 						
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-					@if(Request::path() != "/")
 						<li>
-							
-							<form class="navbar-form navbar-left" action="../search">
-								<select name="location" class="form-control">
-								  
-									@foreach(App\Location::all() as $l)
-										<option value="{{$l->id}}">{{$l->name}}</option>
-									@endforeach
-								 
-								</select>
+							<form class="navbar-form navbar-right col-md-6" role="search">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Bạn đang cần gì?" name="content">
+									<input type="text" class="form-control" placeholder="Search">
 								</div>
-							  <button type="submit" class="btn btn-default">Tìm kiếm</button>
+								<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 							</form>
 						</li>
-					@endif
 						<li>
-							 <div class="navbar-form navbar-left">
-								<a href="/thread/create"><button class="btn btn-primary">Đăng bài</button></a>
-							</div>
+							<a href="/thread/create"><button class="btn btn-primary">Đăng bài</button></a>
 						</li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())

@@ -60,7 +60,7 @@
 							  <div class="media-body">
 								<h4 class="media-heading"><a href="/thread/{{$thread->id}}">{{$thread->title}}</a></h4>
 								
-									<div class="col-md-3">{{$thread->price}} đ ở {{App\Location::find($thread->location)["name"]}}</div> 
+									<div class="col-md-3">{{number_format($thread->price)}} đ ở {{App\Location::find($thread->location)["name"]}}</div> 
 									<div class="text-right">Đăng lúc {{date('d-m-y h:m:s',strtotime($thread->created_at))}} </div>
 								
 							  </div>

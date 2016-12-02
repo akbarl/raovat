@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @extends('menu.category')
+@section('title')
+	{{$name}}
+@endsection
 @section('content')
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -50,7 +53,7 @@
 							  </div>
 							  <div class="media-body">
 								<h4 class="media-heading"><a href="/thread/{{$thread->id}}">{{$thread->title}}</a></h4>
-									<div class="col-md-3">{{$thread->price}} đ</div> 
+									<div class="col-md-3">{{number_format($thread->price)}} đ</div> 
 									<div class="text-right">Đăng lúc {{date('d-m-y h:m:s',strtotime($thread->created_at))}} </div>
 									<div class="col-md-3">{{App\SubCategory::find($thread->subcategory_id)["name"]}} ở {{App\Location::find($thread->location)["name"]}}</div> 
 							  </div>
