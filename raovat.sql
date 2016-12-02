@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2016 at 05:16 PM
--- Server version: 5.7.12
--- PHP Version: 5.6.21
+-- Generation Time: Dec 02, 2016 at 02:49 PM
+-- Server version: 5.7.16
+-- PHP Version: 5.6.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -119,7 +119,8 @@ INSERT INTO `images` (`id`, `name`, `thread_id`, `created_at`, `updated_at`) VAL
 (7, '8_58370a4508360.jpg', 8, '2016-11-24 08:41:57', '2016-11-24 08:41:57'),
 (8, '9_58370a8294a4f.jpg', 9, '2016-11-24 08:42:58', '2016-11-24 08:42:58'),
 (9, '10_58370af77defd.jpg', 10, '2016-11-24 08:44:55', '2016-11-24 08:44:55'),
-(10, '11_58370b360c1a7.jpg', 11, '2016-11-24 08:45:58', '2016-11-24 08:45:58');
+(10, '11_58370b360c1a7.jpg', 11, '2016-11-24 08:45:58', '2016-11-24 08:45:58'),
+(11, '12_5841895b37dbf.jpg', 12, '2016-12-02 07:46:51', '2016-12-02 07:46:51');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ CREATE TABLE `locations` (
 --
 
 INSERT INTO `locations` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Tất cả', NULL, '2016-11-24 08:59:50'),
+(1, 'Toàn Quốc', NULL, '2016-11-24 08:59:50'),
 (2, 'An Giang', NULL, '2016-11-24 08:59:54'),
 (3, 'Bình Dương', NULL, NULL),
 (4, 'TP Hồ Chí Minh', '2016-11-24 09:00:16', '2016-11-24 09:00:16'),
@@ -304,17 +305,18 @@ CREATE TABLE `threads` (
 --
 
 INSERT INTO `threads` (`id`, `title`, `type_id`, `subcategory_id`, `description`, `location`, `condition`, `brand`, `price`, `user_id`, `approval`, `approver`, `view`, `created_at`, `updated_at`) VALUES
-(1, 'Bộ máy Gigabyte G41 DDR3 4G HD 250 Led 19', 1, 9, 'Cần bán Bộ máy Gigabyte G41 sử dụng chiến games ngon lành cành đào chơi LMHT Fifa các kiểu nhé ...\r\nMain Gigabyte G41 Full onboard Zin \r\nCPU : Core2 E6600 3Ghz/3M sử dụng nhanh mạnh mát\r\nRam : DDR3 4G/1333\r\nHDD 250G Seages good 100% tha hồ lưu chứa games phim\r\nVga Onboard 1G chơi games thoải mái\r\nLCD Samsung Led 19 Inch Full HD màu sắc siêu sáng đẹp long lanh\r\nCase mới 100% nguồn 500W\r\nGiá bán 2.700.000 VNĐ có phím chuột mới\r\nLH : TM-DV-MÁY TÍNH TRẦN KHANH\r\nĐC : 158 PHAN HUY ÍCH P.12-GV-HCM\r\nĐT : Nút màu xanh tay phải\r\nHình thật dưới', 1, 2, 1, '2700000', 1, 0, 1, 19, '2016-11-19 22:37:28', '2016-11-24 10:03:39'),
-(2, 'Bán xe Hyundai Grand i10 2016-phiên bản gia đình', 1, 1, 'Bán xe Hyundai Grand I10 2016 số sàn 1.0 MT, mới 100%, nhập khẩu nguyên chiếc, phiên bản cho gia đình hoàn toàn mới với chiều dài và chiều rộng xe được cải tiến. \r\nTrang bị: Thiết kế điêu khắc dòng chảy hiện đại, la zăng đúc, gương gập điện, điều chỉnh điện, chìa khóa thông minh Start/stop Engine, cảm biến lùi, đầu CD, Bluetooth, phanh đĩa ABS, túi khí,... Cùng nhiều tính năng hiện đại khác. \r\nXe mới, đủ màu trắng, bạc, đỏ, cam.\r\nGiá tốt, khuyến mại lớn, hỗ trợ trả góp tới 80% giá trị xe, thủ tục đơn giản, lãi xuất thấp nhất.\r\nLiên hệ tư vấn: Nguyễn Ngọc Tấn - Phụ trách bán hàng.\r\nĐT: 0905.976950', 1, 1, 2, '393000000', 1, 1, 1, 9, '2016-11-19 22:47:42', '2016-11-24 10:13:20'),
+(1, 'Bộ máy Gigabyte G41 DDR3 4G HD 250 Led 19', 1, 9, 'Cần bán Bộ máy Gigabyte G41 sử dụng chiến games ngon lành cành đào chơi LMHT Fifa các kiểu nhé ...\r\nMain Gigabyte G41 Full onboard Zin \r\nCPU : Core2 E6600 3Ghz/3M sử dụng nhanh mạnh mát\r\nRam : DDR3 4G/1333\r\nHDD 250G Seages good 100% tha hồ lưu chứa games phim\r\nVga Onboard 1G chơi games thoải mái\r\nLCD Samsung Led 19 Inch Full HD màu sắc siêu sáng đẹp long lanh\r\nCase mới 100% nguồn 500W\r\nGiá bán 2.700.000 VNĐ có phím chuột mới\r\nLH : TM-DV-MÁY TÍNH TRẦN KHANH\r\nĐC : 158 PHAN HUY ÍCH P.12-GV-HCM\r\nĐT : Nút màu xanh tay phải\r\nHình thật dưới', 1, 2, 1, '2700000', 1, 1, 2, 19, '2016-11-19 22:37:28', '2016-12-02 07:47:42'),
+(2, 'Bán xe Hyundai Grand i10 2016-phiên bản gia đình', 1, 1, 'Bán xe Hyundai Grand I10 2016 số sàn 1.0 MT, mới 100%, nhập khẩu nguyên chiếc, phiên bản cho gia đình hoàn toàn mới với chiều dài và chiều rộng xe được cải tiến. \r\nTrang bị: Thiết kế điêu khắc dòng chảy hiện đại, la zăng đúc, gương gập điện, điều chỉnh điện, chìa khóa thông minh Start/stop Engine, cảm biến lùi, đầu CD, Bluetooth, phanh đĩa ABS, túi khí,... Cùng nhiều tính năng hiện đại khác. \r\nXe mới, đủ màu trắng, bạc, đỏ, cam.\r\nGiá tốt, khuyến mại lớn, hỗ trợ trả góp tới 80% giá trị xe, thủ tục đơn giản, lãi xuất thấp nhất.\r\nLiên hệ tư vấn: Nguyễn Ngọc Tấn - Phụ trách bán hàng.\r\nĐT: 0905.976950', 1, 1, 2, '393000000', 1, 1, 1, 18, '2016-11-19 22:47:42', '2016-12-02 07:42:00'),
 (3, 'Áo sơ mi caro cổ', 1, 10, 'Quẩn áo chất liệu tốt', 1, 1, 1, '500000', 4, 1, 1, 27, '2016-11-24 06:48:01', '2016-11-24 09:02:13'),
 (4, 'coolpad e502 hoặc F101', 1, 7, 'Mik kân mua coolpad e502 hoạc F101 \r\n\r\nAi bán alo mik nhe', 1, 2, 1, '2000000', 5, 1, 1, 5, '2016-11-24 06:57:50', '2016-11-24 08:39:04'),
-(5, 'lenovo a5166', 1, 7, 'Cần bán lenovo 2sim 2camera 3G WIFI chắc năng đầy đủ.ngoại hình hơi xấu một tí.ai mua xin liên hệ.fix chút tiền xăng.tks cho tốt', 1, 2, 1, '800000', 1, 1, 1, 2, '2016-11-24 07:35:58', '2016-11-24 08:39:03'),
-(6, 'Bộ máy MSI E2200, 2.2Gh x2CPU, Ram2Gb, LCD, và Loa', 1, 6, 'Tôi là Tâm (44 tuổi, ở Gò Vấp), cần bán cả dàn máy vi tính cũ giá rẻ với cấu hình cao.\r\nTất cả gồm: thùng CPU, màn hình LCD, bàn phím, chuột, bộ loa,…Cụ thể như sau:\r\n# Thùng CPU:\r\nMainboard MSI 7267\r\nCPU Dual 2CPU E2200 - 2.2Ghz x2 (nhân 2CPU)\r\nRAM2: 2Gb\r\nỔ cứng HDD 80Gb loại SATA chạy tốc độ cao\r\nỔ DVD, tiện xem phim DVD/VCD, nghe nhạc CD/Mp3\r\nVGA onboard 256Mb, cho hình ảnh đẹp và mượt\r\nLAN, sound onbord, âm thanh nghe rất hay\r\n6 cổng USB,...\r\nThùng máy chắc chắn, còn rất đẹp\r\nMáy chạy nhanh, thoải mái để học tập, giải trí, xử lý đồ họa Acad, Photoshop,… hay chơi các game online: Thiên Long, Đột kích, Võ Lâm, Liên Minh,…\r\n\r\n# Màn hình LCD hiệu ViewSonic\r\nModel: VE510b\r\nLCD size 15inch, kiểu dáng đẹp, tiết kiệm điện\r\nĐộ phân giải cao, cho hình ảnh sắc nét và rất đẹp\r\n# Bàn phím Mitsumi và chuột quang Dell\r\n# Bộ loa Ruizu 380 âm thanh nghe rất hay để xem phim, nghe nhạc.\r\n# và tất cả các dây điện, dây VGA, dây loa,…\r\n\r\n* Mua về là dùng ngay mà không cần phải mua thêm gì nữa\r\n\r\n* Tình trạng: nhà đã sử dụng hơn 2 năm, hiện tại vẫn đang sử dụng rất tốt. \r\n\r\n* Vì tôi dư dùng nên bán tất cả chúng cho ai có nhu cầu, đặc biệt sẽ rất thích hợp cho NV văn phòng, công nhân, sinh viên, học sinh.\r\n\r\n## Máy đã cài sẵn: Win 7, Win Xp3, Office 2010, internet, các tiện ích, chat, diệt virus, game, nghe nhạc, xem phim, TV,...\r\n## Đặc biệt, có nhiều chtrình phục vụ học tập, nghiên cứu, giải trí dành cho bé mẫu giáo, học sinh cấp 1,2,3,… \r\n## Máy chạy nhanh, thoải mái để học tập, giải trí, xử lý đồ họa Acad, Photoshop,… hay chơi các game online: Thiên Long, Đột kích, Võ Lâm, Liên Minh (đã cài sẵn),…\r\n\r\n## Mời xem ảnh chụp thật đính kèm.\r\n\r\n## Giá bán hết tất cả: 1triệu700\r\n## Liên hệ: Chú Tâm (xin miễn nhắn tin)\r\n\r\n*** Còn dư bộ thu sóng Wifi USB,sẽ tặng cho ai có thiện chí và mua nhanh lẹ !', 1, 2, 1, '1700000', 4, 1, 1, 5, '2016-11-24 07:52:49', '2016-11-24 08:39:04'),
-(7, 'XE ĐẨY BÁN HÀNG', 1, 3, 'Cần bán xe đẩy bán hàng cỡ lớn \r\ntình trạng : còn mới.', 1, 2, 1, '2500000', 7, 1, 1, 0, '2016-11-24 08:40:46', '2016-11-24 08:46:17'),
-(8, 'Máy giặt SANYO 7,2kg', 2, 9, 'Bán máy giặt SANYO 7,2kg mới 95%, zin toàn bộ. Máy đời mới chạy êm, giặt hoàn toàn tự động, tiết kiệm điện nước, bảng điều khiển mới với nút bấm thông minh, có đủ ống nước cấp xả. Giá 2,2tr', 1, 2, 1, '2200000', 7, 1, 1, 0, '2016-11-24 08:41:57', '2016-11-24 08:46:21'),
-(9, 'Giày thể thao Marcos', 1, 11, 'Giày thể thao nam chuyên dùng cho chạy bộ, siêu nhẹ, cực êm, chất lượng xuất khẩu, hàng sản xuất tại Việt Nam. Hàng lẻ size, hiện chỉ còn size 41. Thanh lý giá cực tốt.\r\nLiên hệ Trí-', 1, 1, 1, '650000', 7, 1, 1, 0, '2016-11-24 08:42:58', '2016-11-24 08:46:18'),
-(10, 'Sony z1 9 hãng ram 2g bộ nhớ 32g', 1, 7, 'Máy em mới lột keo ra trước sau đẹp leng keng không tì vết, viền hơi trầy 1 xíu...con này ram 2g bộ nhớ tới 32g nhe..camera 20.7mgx bao cực kì nét đẹp,máy zin 100% chưa sữa chữa 1 lần nào, pk có củ sạc, cáp, dock sac zin 9 hãng theo máy...dock sạc mua mới ở ngoài 450k chưa chắc 9 hãng..có nhận gl các thể loại bù trừ...co fix xăng xe...quá tuyệt vời lun..\r\n', 1, 2, 4, '1950000', 4, 1, 1, 0, '2016-11-24 08:44:55', '2016-11-24 08:46:19'),
-(11, 'Ipad 3 3G 16G', 1, 7, 'Ông cậu về nước chó cái máy Ipad 3 mà mình không xài nên muốn bán lại , máy đã sử dụng như hình , anh chị nào thật lòng muốn mua thì qua xem máy được thì lấy , máy và sạc', 1, 2, 2, '3100000', 4, 1, 1, 1, '2016-11-24 08:45:58', '2016-11-24 09:58:39');
+(5, 'lenovo a5166', 1, 7, 'Cần bán lenovo 2sim 2camera 3G WIFI chắc năng đầy đủ.ngoại hình hơi xấu một tí.ai mua xin liên hệ.fix chút tiền xăng.tks cho tốt', 1, 2, 1, '800000', 1, 1, 1, 3, '2016-11-24 07:35:58', '2016-12-02 04:19:49'),
+(6, 'Bộ máy MSI E2200, 2.2Gh x2CPU, Ram2Gb, LCD, và Loa', 1, 6, 'Tôi là Tâm (44 tuổi, ở Gò Vấp), cần bán cả dàn máy vi tính cũ giá rẻ với cấu hình cao.\r\nTất cả gồm: thùng CPU, màn hình LCD, bàn phím, chuột, bộ loa,…Cụ thể như sau:\r\n# Thùng CPU:\r\nMainboard MSI 7267\r\nCPU Dual 2CPU E2200 - 2.2Ghz x2 (nhân 2CPU)\r\nRAM2: 2Gb\r\nỔ cứng HDD 80Gb loại SATA chạy tốc độ cao\r\nỔ DVD, tiện xem phim DVD/VCD, nghe nhạc CD/Mp3\r\nVGA onboard 256Mb, cho hình ảnh đẹp và mượt\r\nLAN, sound onbord, âm thanh nghe rất hay\r\n6 cổng USB,...\r\nThùng máy chắc chắn, còn rất đẹp\r\nMáy chạy nhanh, thoải mái để học tập, giải trí, xử lý đồ họa Acad, Photoshop,… hay chơi các game online: Thiên Long, Đột kích, Võ Lâm, Liên Minh,…\r\n\r\n# Màn hình LCD hiệu ViewSonic\r\nModel: VE510b\r\nLCD size 15inch, kiểu dáng đẹp, tiết kiệm điện\r\nĐộ phân giải cao, cho hình ảnh sắc nét và rất đẹp\r\n# Bàn phím Mitsumi và chuột quang Dell\r\n# Bộ loa Ruizu 380 âm thanh nghe rất hay để xem phim, nghe nhạc.\r\n# và tất cả các dây điện, dây VGA, dây loa,…\r\n\r\n* Mua về là dùng ngay mà không cần phải mua thêm gì nữa\r\n\r\n* Tình trạng: nhà đã sử dụng hơn 2 năm, hiện tại vẫn đang sử dụng rất tốt. \r\n\r\n* Vì tôi dư dùng nên bán tất cả chúng cho ai có nhu cầu, đặc biệt sẽ rất thích hợp cho NV văn phòng, công nhân, sinh viên, học sinh.\r\n\r\n## Máy đã cài sẵn: Win 7, Win Xp3, Office 2010, internet, các tiện ích, chat, diệt virus, game, nghe nhạc, xem phim, TV,...\r\n## Đặc biệt, có nhiều chtrình phục vụ học tập, nghiên cứu, giải trí dành cho bé mẫu giáo, học sinh cấp 1,2,3,… \r\n## Máy chạy nhanh, thoải mái để học tập, giải trí, xử lý đồ họa Acad, Photoshop,… hay chơi các game online: Thiên Long, Đột kích, Võ Lâm, Liên Minh (đã cài sẵn),…\r\n\r\n## Mời xem ảnh chụp thật đính kèm.\r\n\r\n## Giá bán hết tất cả: 1triệu700\r\n## Liên hệ: Chú Tâm (xin miễn nhắn tin)\r\n\r\n*** Còn dư bộ thu sóng Wifi USB,sẽ tặng cho ai có thiện chí và mua nhanh lẹ !', 1, 2, 1, '1700000', 4, 1, 1, 10, '2016-11-24 07:52:49', '2016-12-02 05:11:33'),
+(7, 'XE ĐẨY BÁN HÀNG', 1, 3, 'Cần bán xe đẩy bán hàng cỡ lớn \r\ntình trạng : còn mới.', 1, 2, 1, '2500000', 7, 1, 1, 2, '2016-11-24 08:40:46', '2016-12-02 04:20:35'),
+(8, 'Máy giặt SANYO 7,2kg', 2, 9, 'Bán máy giặt SANYO 7,2kg mới 95%, zin toàn bộ. Máy đời mới chạy êm, giặt hoàn toàn tự động, tiết kiệm điện nước, bảng điều khiển mới với nút bấm thông minh, có đủ ống nước cấp xả. Giá 2,2tr', 1, 2, 1, '2200000', 7, 1, 1, 1, '2016-11-24 08:41:57', '2016-12-02 04:20:32'),
+(9, 'Giày thể thao Marcos', 1, 11, 'Giày thể thao nam chuyên dùng cho chạy bộ, siêu nhẹ, cực êm, chất lượng xuất khẩu, hàng sản xuất tại Việt Nam. Hàng lẻ size, hiện chỉ còn size 41. Thanh lý giá cực tốt.\r\nLiên hệ Trí-', 1, 1, 1, '650000', 7, 1, 1, 6, '2016-11-24 08:42:58', '2016-12-02 04:52:00'),
+(10, 'Sony z1 9 hãng ram 2g bộ nhớ 32g', 1, 7, 'Máy em mới lột keo ra trước sau đẹp leng keng không tì vết, viền hơi trầy 1 xíu...con này ram 2g bộ nhớ tới 32g nhe..camera 20.7mgx bao cực kì nét đẹp,máy zin 100% chưa sữa chữa 1 lần nào, pk có củ sạc, cáp, dock sac zin 9 hãng theo máy...dock sạc mua mới ở ngoài 450k chưa chắc 9 hãng..có nhận gl các thể loại bù trừ...co fix xăng xe...quá tuyệt vời lun..\r\n', 1, 2, 4, '1950000', 4, 1, 1, 6, '2016-11-24 08:44:55', '2016-12-02 05:59:05'),
+(11, 'Ipad 3 3G 16G', 1, 7, 'Ông cậu về nước chó cái máy Ipad 3 mà mình không xài nên muốn bán lại , máy đã sử dụng như hình , anh chị nào thật lòng muốn mua thì qua xem máy được thì lấy , máy và sạc', 1, 2, 2, '3100000', 4, 1, 1, 9, '2016-11-24 08:45:58', '2016-12-02 07:47:53'),
+(12, 'Loa Soundmax a2727', 1, 9, '\r\nLoa nhà sài lâu rồi nhưng còn ấm, không rè không lỗi gì hết, chỉ hơi củ theo thời gian, loa cái hơi móp xíu chổ vân loa thôi nha.\r\nthông tin loa:\r\nSOUNDMAX\r\nKiểu 2.1\r\nCông suất(W) 60W\r\nLoa trầm(Subwoofer)\r\nCông suất loa trầm(W) 30\r\nDải tần - Loa vệ tinh: 110Hz ~ 20KHz - Loa siêu trầm: 25Hz~200Hz\r\nKích thước loa trầm 230 x 230 x 220 mm\r\nThông số khác\r\nNguồn điện sử dụng 220V ~ 50Hz\r\n\r\ncần mua bạn qua xem, nghe được mình bán nhé. không sài nữa nên bán thôi. mình cá nhân bán.', 1, 2, 4, '400000', 13, 1, 2, 3, '2016-12-02 07:46:51', '2016-12-02 07:47:57');
 
 -- --------------------------------------------------------
 
@@ -365,16 +367,18 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`, `birth`, `sex`, `phone`, `location`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'daylaadmin', 'dayladmin@gmail.com', '$2y$10$FljLCyPc7eYs0SQOHU4iFuue/q9Zydzm7iQx2.Lxoc4fS5RKU4nP2', 'Lê Văn Nhưng', '1995-11-22', 1, '0128997267', 1, 3, 'Z4C7vuKUYTsIeeskyhF9gNoT5Yp8w7E5L4sbbmWpxHcfbRkgTNJB7hlOVQ78', '2016-11-19 22:06:53', '2016-11-24 08:39:13'),
-(2, 'daylauser', 'daylauser@gmail.com', '$2y$10$YwIatBn1q5CZ027yGj8LzuPK8QgNvPD8oiRGFoWrgCf3VwmkxF.82', NULL, NULL, NULL, NULL, NULL, 1, '2EMO6tkHVPqCJJNQyA1DxXU0ELhew9zHbkvv8J1xVbqT08vkD71SO5f8nLQf', '2016-11-20 00:33:00', '2016-11-20 00:33:15'),
+(2, 'daylauser', 'daylauser@gmail.com', '$2y$10$YwIatBn1q5CZ027yGj8LzuPK8QgNvPD8oiRGFoWrgCf3VwmkxF.82', NULL, NULL, NULL, NULL, NULL, 3, 'SNH0nE9uhU17hCSI30laTRUQXIPtEMC6aokGjMD8Uk7oSTAVaIofhz5jYbXl', '2016-11-20 00:33:00', '2016-12-02 07:43:25'),
 (3, 'daylauser1', 'daylauser1@gmail.com', '$2y$10$KHv64HaQIU7OmaD83C1tieuAYkaVlFgKqArOSYthKGcBdsGwpjp3G', NULL, NULL, NULL, NULL, NULL, 1, '2BEai73V2kPJygcGnk7t3huSRtPDGeY5haYFi1NopN9UbIg864aabkpp6UoD', '2016-11-24 06:11:59', '2016-11-24 06:45:23'),
-(4, 'daylauser2', 'daylauser2@gmail.com', '$2y$10$98reanVtL2/SvtDcS7pxVeQUJhN2JQ9Y1CIEe5nb3/EyKnPSvjgoG', NULL, NULL, NULL, NULL, NULL, 1, 'xDjIYO354cpNwMd9TsbPJL6i6j3XhMNGAeklkW68gMUt7NBL04VyHyLh4clS', '2016-11-24 06:12:11', '2016-11-24 08:46:01'),
+(4, 'daylauser2', 'daylauser2@gmail.com', '$2y$10$98reanVtL2/SvtDcS7pxVeQUJhN2JQ9Y1CIEe5nb3/EyKnPSvjgoG', NULL, NULL, NULL, NULL, NULL, 1, 'U7LHOXkpB8e2r4k5fejRP0GMabUCB6nUQaKOPpIBfsaq4ktyQypdRYcghXHr', '2016-11-24 06:12:11', '2016-12-02 07:18:26'),
 (5, 'daylauser3', 'daylauser3@gmail.com', '$2y$10$zlmnOjZDmEzQY8urP8ZAKub9v35cRmS.GOdTn/UJ5wTTUq2iUe4eu', NULL, NULL, NULL, NULL, NULL, 1, '1jeApO6pGUJ0kws38xSl2An05ztgIvrMKwrGGFnkdXSi43MJb3jbc7ZQ6sW2', '2016-11-24 06:12:24', '2016-11-24 07:54:09'),
 (6, 'daylauser4', 'daylauser4@gmail.com', '$2y$10$TEhUbknJ/3NuZws3UIlKQeh8t0qNyxHWmF.N6.K5ijkBp1dFx8dJ6', NULL, NULL, NULL, NULL, NULL, 1, 'nTJuBGcuBGlHGTpnnc63Wotul6VGRRcgxKOypsCYah3x51KVDOutAVVg0RZU', '2016-11-24 06:12:33', '2016-11-24 06:12:35'),
 (7, 'daylauser5', 'daylauser5@gmail.com', '$2y$10$vt3QKjtZWpmOgbFOT1gZZ.XY4tCxCGTu7tnMJUSQK3vaXMwOdIbYa', NULL, NULL, NULL, NULL, NULL, 1, 'g6uMSST3SXFYsOxNZtnH2ck8BFpFlYHFwE62C4TtUyd3AAs0NKbEf28qHFbt', '2016-11-24 06:12:44', '2016-11-24 08:43:08'),
 (8, 'daylauser6', 'daylauser6@gmail.com', '$2y$10$8Fk1dZPhOForpB.KDfzWSuYJzz0QiPZYp5u.AW1KfjEJg//qGzyE.', NULL, NULL, NULL, NULL, NULL, 1, 'zyCJpqRl4UZ1wZUvAUWfjTWaLvMgoqESFAos21fsx76TxfDSXn4oLguiAvGx', '2016-11-24 06:12:56', '2016-11-24 06:12:57'),
 (9, 'daylauser7', 'daylauser7@gmail.com', '$2y$10$7nQn.6mzlxlpRTOeZ8u/QucuA/Q1Ld3nzYalZVCzUZFYb5sGmZ.K6', NULL, NULL, NULL, NULL, NULL, 1, '8uzlTCU0fuR0QiyuGp54LGLoO6QOqidTZri1YDVMT4zgy0r49i36hHzaY2Jm', '2016-11-24 06:13:04', '2016-11-24 06:13:06'),
 (10, 'daylauser8', 'daylauser8@gmail.com', '$2y$10$kXWyVaZFA0NUQnKAWEH9FOye/dlPQcMN18cjt00RKXnySyUUSGtiG', NULL, NULL, NULL, NULL, NULL, 1, 'xNlFyUfp8ygRacQDVywTHCdh3EoSQrWn7X5dj2EbDDYoVvpO3HgoioubaXih', '2016-11-24 06:13:15', '2016-11-24 06:13:16'),
-(11, 'daylauser9', 'daylauser9@gmail.com', '$2y$10$l3u4AsmXT184loxw2Z6ycOSOg68B/MyqT738c49xPRknPX2B0GbUO', NULL, NULL, NULL, NULL, NULL, 1, 'Xm55IbNh3EXJh01BoN6nnyVZb73xUm6IIfQwdbTCJgQ7DMGUWDxWSsMDTMfY', '2016-11-24 06:13:24', '2016-11-24 06:13:26');
+(11, 'daylauser9', 'daylauser9@gmail.com', '$2y$10$l3u4AsmXT184loxw2Z6ycOSOg68B/MyqT738c49xPRknPX2B0GbUO', NULL, NULL, NULL, NULL, NULL, 1, 'Xm55IbNh3EXJh01BoN6nnyVZb73xUm6IIfQwdbTCJgQ7DMGUWDxWSsMDTMfY', '2016-11-24 06:13:24', '2016-11-24 06:13:26'),
+(12, 'daylauser2', 'daylauser2@daylauser2.com', '$2y$10$VbOswVXiZnrZiSwPQzSJNekQME84EpjMrB/o/TvLsaSgRDb3jSikG', NULL, NULL, NULL, NULL, NULL, 1, 'D7ZuZW1Ymz4z6veOrXwKPePnslU3bCooQeHKEHFZ6hPphzpHSekeRKwNBlWF', '2016-12-02 05:27:17', '2016-12-02 05:49:48'),
+(13, 'akbarl', 'akbarl@live.com', '$2y$10$PDtzbvPUNYgMqTBHyqxbveoT.6jqBr/3u29pm4CnyU9kSgStCfAIK', NULL, NULL, NULL, NULL, NULL, 1, 'eGdd01hNNsFXCIM6lC1ysXA8TemhnMYGkORlfV4mC8cL0Kp3w8284IUsMDwq', '2016-12-02 06:02:09', '2016-12-02 07:47:16');
 
 --
 -- Indexes for dumped tables
@@ -494,7 +498,7 @@ ALTER TABLE `conditions`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `locations`
 --
@@ -524,7 +528,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `types`
 --
@@ -534,7 +538,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints for dumped tables
 --
